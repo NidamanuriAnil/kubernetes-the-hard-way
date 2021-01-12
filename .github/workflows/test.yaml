@@ -1,0 +1,22 @@
+name: test
+
+"on":
+  push:
+    branches:
+      - test
+    paths:
+      - .github/**
+jobs:
+  test_clone:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout test
+        uses: actions/checkout@v2
+        with:
+          repository: NidamanuriAnil/test
+          token: ${{ secrets.TOKEN }}
+          ref: test
+          persist-credentials: 'false'
+          
+
+
